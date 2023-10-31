@@ -3,11 +3,13 @@ const startBtn = document.querySelector("#start");
 const stopBtn = document.querySelector("#stop");
 
 let wachID = null;
+let currentRide = null;
 
 startBtn.addEventListener("click", () => {
   if (wachID) return;
 
   function handleSuccess(position) {
+    addPosition(currentRide, position);
     console.log(position);
     speedElement.innerText = position.coords.speed
       ? (position.coords.speed * 3.6).toFixed(1)
@@ -19,6 +21,8 @@ startBtn.addEventListener("click", () => {
   }
 
   const options = { enableHighAccuracy: true };
+
+  currentRide = createNewRide();
 
   wachID = navigator.geolocation.watchPosition(
     handleSuccess,
@@ -34,6 +38,8 @@ stopBtn.addEventListener("click", () => {
   if (!wachID) return;
   navigator.geolocation.clearWatch(wachID);
   wachID = null;
+  updateStopTime(currentRide);
+  currentRide = null;
   startBtn.classList.remove("d-none");
   stopBtn.classList.add("d-none");
 });
