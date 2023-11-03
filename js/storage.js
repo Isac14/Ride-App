@@ -11,7 +11,7 @@ function createNewRide() {
 }
 
 function getAllRides() {
-  return Object.entries(localStorage);
+  return Object.entries(localStorage); //returns the local storage items
 }
 
 function getRideRecord(rideID) {
