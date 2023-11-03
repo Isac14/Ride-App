@@ -6,6 +6,12 @@ allRides.forEach(async ([id, value]) => {
   ride.id = id;
   console.log(ride);
 
+  const itemElement = document.createElement("li");
+  itemElement.id = ride.id;
+  itemElement.className =
+    "d-flex p-1 align-items-center justify-content-center shadow-sm gap-3";
+  rideListElemenst.appendChild(itemElement);
+
   const firstPosition = ride.data[0];
 
   const firstLocationData = await getLocationData(
@@ -13,31 +19,41 @@ allRides.forEach(async ([id, value]) => {
     firstPosition.longitude
   );
 
-  const itemElement = document.createElement("li");
-  itemElement.id = ride.id;
+  const mapElement = document.createElement("div");
+  mapElement.style = "width:100px;height:100px";
+  mapElement.classList.add("bg-secondary");
+  mapElement.classList.add("rounded-4");
+
+  const dataElement = document.createElement("div");
+  dataElement.className = "flex-fill d-flex flex-column";
 
   const cityDiv = document.createElement("div");
   cityDiv.innerText = `${firstLocationData.city} - ${firstLocationData.countryCode}`;
+  cityDiv.className = "text-primary mb-2";
 
   const maxSpeedDiv = document.createElement("div");
   maxSpeedDiv.innerText = `Max Speed: ${getMaxSpeed(ride.data)} km/h`;
+  maxSpeedDiv.className = "h5";
 
   const distanceDiv = document.createElement("div");
   distanceDiv.innerText = `Distance: ${getDistance(ride.data)} km`;
 
   const durationDiv = document.createElement("div");
   durationDiv.innerText = `Duration: ${getDuration(ride)} `;
+  durationDiv.className = "";
 
   const dateDiv = document.createElement("div");
   dateDiv.innerText = `Date: ${getStartDate(ride)}`;
+  dateDiv.className = "text-secondary mt-2";
 
-  itemElement.appendChild(cityDiv);
-  itemElement.appendChild(maxSpeedDiv);
-  itemElement.appendChild(distanceDiv);
-  itemElement.appendChild(durationDiv);
-  itemElement.appendChild(dateDiv);
+  dataElement.appendChild(cityDiv);
+  dataElement.appendChild(maxSpeedDiv);
+  dataElement.appendChild(distanceDiv);
+  dataElement.appendChild(durationDiv);
+  dataElement.appendChild(dateDiv);
 
-  rideListElemenst.appendChild(itemElement);
+  itemElement.append(mapElement);
+  itemElement.append(dataElement);
 });
 
 async function getLocationData(latitude, longitude) {
