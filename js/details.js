@@ -1,32 +1,13 @@
-const rideListElemenst = document.querySelector("#rideList");
-const allRides = getAllRides();
+const params = new URLSearchParams(window.location.search);
+const rideID = params.get("id");
+const ride = getRideRecord(rideID);
 
-allRides.forEach(async ([id, value]) => {
-  const ride = JSON.parse(value);
-  ride.id = id;
-  console.log(ride);
-
-  const itemElement = document.createElement("li");
-  itemElement.id = ride.id;
-  itemElement.className =
-    "d-flex p-1 align-items-center justify-content-center shadow-sm gap-3";
-  rideListElemenst.appendChild(itemElement);
-
-  itemElement.addEventListener("click", () => {
-    window.location.href = `../pages/details.html?id=${ride.id}`;
-  });
-
+document.addEventListener("DOMContentLoaded", async () => {
   const firstPosition = ride.data[0];
-
   const firstLocationData = await getLocationData(
     firstPosition.latitude,
     firstPosition.longitude
   );
-
-  const mapElement = document.createElement("div");
-  mapElement.style = "width:100px;height:100px";
-  mapElement.classList.add("bg-secondary");
-  mapElement.classList.add("rounded-4");
 
   const dataElement = document.createElement("div");
   dataElement.className = "flex-fill d-flex flex-column";
@@ -56,6 +37,5 @@ allRides.forEach(async ([id, value]) => {
   dataElement.appendChild(durationDiv);
   dataElement.appendChild(dateDiv);
 
-  itemElement.append(mapElement);
-  itemElement.append(dataElement);
+  document.querySelector("#data").appendChild(dataElement);
 });
