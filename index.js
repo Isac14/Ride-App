@@ -13,7 +13,7 @@ allRides.forEach(async ([id, value]) => {
   rideListElemenst.appendChild(itemElement);
 
   itemElement.addEventListener("click", () => {
-    window.location.href = `../pages/details.html?id=${ride.id}`;
+    window.location.href = `./details.html?id=${ride.id}`;
   });
 
   const firstPosition = ride.data[0];
