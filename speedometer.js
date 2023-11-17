@@ -4,9 +4,23 @@ const stopBtn = document.querySelector("#stop");
 
 let wachID = null;
 let currentRide = null;
+let wakeLock = null;
+
+const requestWakeLock = async () => {
+  try {
+    wakeLock = await navigator.wakeLock.request("screen");
+    wakeLock.addEventListener("release", () => {
+      console.log("Wake Lock foi liberado");
+    });
+    console.log("Wake Lock está ativo");
+  } catch (err) {
+    console.error(`${err.name}, ${err.message}`);
+  }
+};
 
 startBtn.addEventListener("click", () => {
   if (wachID) return;
+  requestWakeLock();
 
   function handleSuccess(position) {
     addPosition(currentRide, position);
@@ -44,4 +58,16 @@ stopBtn.addEventListener("click", () => {
   stopBtn.classList.add("d-none");
 
   window.location.href = "./";
+
+  if (wakeLock !== null) {
+    wakeLock
+      .release()
+      .then(() => {
+        wakeLock = null;
+        console.log("Wake Lock foi liberado");
+      })
+      .catch((err) => {
+        console.error(`${err.name}, ${err.message}`);
+      });
+  }
 });
