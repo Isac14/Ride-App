@@ -22,11 +22,11 @@ function getDistance(positions) {
   for (let i = 0; i < positions.lenght - 1; i++) {
     const p1 = {
       latitude: positions[i].latitude,
-      latitude: positions[i].longitude,
+      longitude: positions[i].longitude,
     };
     const p2 = {
       latitude: positions[i + 1].latitude,
-      latitude: positions[i + 1].longitude,
+      longitude: positions[i + 1].longitude,
     };
 
     const deltaLatitude = toRad(p2.latitude - p1.latitude);
