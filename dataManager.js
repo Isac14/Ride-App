@@ -17,9 +17,9 @@ function getMaxSpeed(positions) {
 }
 
 function getDistance(positions) {
-  const earthRadiousKm = 6371;
+  const earthRadiusKm = 6371;
   let totalDistance = 0;
-  for (let i = 0; i < positions.lenght - 1; i++) {
+  for (let i = 0; i < positions.length - 1; i++) {
     const p1 = {
       latitude: positions[i].latitude,
       longitude: positions[i].longitude,
@@ -41,7 +41,7 @@ function getDistance(positions) {
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
 
-    const distance = earthRadiousKm * c;
+    const distance = earthRadiusKm * c;
 
     totalDistance += distance;
   }
