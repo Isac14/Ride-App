@@ -1,6 +1,8 @@
 const rideListElement = document.querySelector("#rideList");
 const allRides = getAllRides();
 
+noRides();
+
 allRides.forEach(async ([id, value]) => {
   const ride = JSON.parse(value);
   ride.id = id;
