@@ -1,5 +1,5 @@
 async function getLocationData(latitude, longitude) {
-  const url = `http://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&=localityLanguage=en`;
+  const url = `https://api.bigdatacloud.net/data/reverse-geocode-client?latitude=${latitude}&longitude=${longitude}&=localityLanguage=en`;
 
   const response = await fetch(url);
   return await response.json();
@@ -73,5 +73,8 @@ function getStartDate(ride) {
   const month = d.toLocaleDateString("pt-BR", { month: "long" });
   const year = d.toLocaleDateString("en-US", { year: "numeric" });
 
-  return `${day} de ${month}, ${year}`;
+  const hour = d.toLocaleString("en-US", { hour: "2-digit", hour12: false });
+  const minute = d.toLocaleString("en-US", { minute: "2-digit" });
+
+  return `${day} de ${month} de ${year}, às ${hour}:${minute}`;
 }

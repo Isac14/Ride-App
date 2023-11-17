@@ -1,23 +1,21 @@
-const rideListElemenst = document.querySelector("#rideList");
+const rideListElement = document.querySelector("#rideList");
 const allRides = getAllRides();
 
 allRides.forEach(async ([id, value]) => {
   const ride = JSON.parse(value);
   ride.id = id;
-  console.log(ride);
 
   const itemElement = document.createElement("li");
   itemElement.id = ride.id;
   itemElement.className =
-    "d-flex p-1 align-items-center justify-content-center shadow-sm gap-3";
-  rideListElemenst.appendChild(itemElement);
+    "d-flex p-1 align-items-center justify-content-between shadow-sm gap-3";
+  rideListElement.appendChild(itemElement);
 
   itemElement.addEventListener("click", () => {
     window.location.href = `./details.html?id=${ride.id}`;
   });
 
   const firstPosition = ride.data[0];
-
   const firstLocationData = await getLocationData(
     firstPosition.latitude,
     firstPosition.longitude
@@ -38,18 +36,17 @@ allRides.forEach(async ([id, value]) => {
   cityDiv.className = "text-primary mb-2";
 
   const maxSpeedDiv = document.createElement("div");
-  maxSpeedDiv.innerText = `Max Speed: ${getMaxSpeed(ride.data)} km/h`;
+  maxSpeedDiv.innerText = `Max speed: ${getMaxSpeed(ride.data)} Km/h`;
   maxSpeedDiv.className = "h5";
 
   const distanceDiv = document.createElement("div");
-  distanceDiv.innerText = `Distance: ${getDistance(ride.data)} km`;
+  distanceDiv.innerText = `Distance: ${getDistance(ride.data)} Km`;
 
   const durationDiv = document.createElement("div");
-  durationDiv.innerText = `Duration: ${getDuration(ride)} `;
-  durationDiv.className = "";
+  durationDiv.innerText = `Duration: ${getDuration(ride)}`;
 
   const dateDiv = document.createElement("div");
-  dateDiv.innerText = `Date: ${getStartDate(ride)}`;
+  dateDiv.innerText = getStartDate(ride);
   dateDiv.className = "text-secondary mt-2";
 
   dataElement.appendChild(cityDiv);
@@ -58,8 +55,8 @@ allRides.forEach(async ([id, value]) => {
   dataElement.appendChild(durationDiv);
   dataElement.appendChild(dateDiv);
 
-  itemElement.append(mapElement);
-  itemElement.append(dataElement);
+  itemElement.appendChild(mapElement);
+  itemElement.appendChild(dataElement);
 
   const map = L.map(mapID, {
     attributionControl: false,

@@ -4,6 +4,7 @@ const ride = getRideRecord(rideID);
 
 document.addEventListener("DOMContentLoaded", async () => {
   const firstPosition = ride.data[0];
+  console.log(ride.data);
   const firstLocationData = await getLocationData(
     firstPosition.latitude,
     firstPosition.longitude
@@ -47,6 +48,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   const map = L.map("mapDetail");
   map.setView([firstPosition.latitude, firstPosition.longitude], 15);
+  console.log(firstPosition.latitude, firstPosition.longitude);
   L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
     minZoom: 8,
     maxZoom: 19,
