@@ -5,6 +5,13 @@ async function getLocationData(latitude, longitude) {
   return await response.json();
 }
 
+function noRides() {
+  if (localStorage.length > 0) {
+    const textNoRide = document.querySelector("#textNoRide");
+    textNoRide.classList.add("d-none");
+  }
+}
+
 function getMaxSpeed(positions) {
   let maxSpeed = 0;
   positions.forEach((position) => {
