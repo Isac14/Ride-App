@@ -5,7 +5,7 @@ Ele conta com duas páginas. A primeira exibe os registros das corridas, contend
 
 ### 📋 Pré-requisitos e Dependências
 
-Esse app não requer nenhum pré-requisito ou dependência e está disponível em: https://isac14.github.io/Ride-App/
+Esse app não requer nenhum pré-requisito ou dependência e está disponível em: https://devmamede.github.io/Ride-App/
 
 ### 🛠️ Tecnologias utilizadas
 
@@ -20,9 +20,9 @@ Esse app não requer nenhum pré-requisito ou dependência e está disponível e
 
 ### ⚙️ Problemas enfrentados
 
-Este projeto foi bastante desafiador e de certa forma complexo, pois estava colocando em prática vários conhecimentos novos. <br>
-Durante o seu desenvolvimento, encontrei desafios em relação a deixar o código organizado e com uma boa lógica. <br>
-A minha maior dificuldade foi lidar, trabalhar e organizar diversas funções e parâmetros.
+Este projeto foi bastante desafiador e de certa forma complexo, pois coloquei em prática vários conhecimentos novos. <br>
+Durante o seu desenvolvimento, encontrei desafios em relação a organização e lógica do código. <br>
+Minha maior dificuldade foi lidar, trabalhar e organizar diversas funções e seus parâmetros.
 
 ### 🚀 Próximos passos
 
@@ -36,10 +36,16 @@ Alguns upgrades que servirão como próximos passos para o aplicativo são:
 
 * **Isac Mamede** - *Desenvolvimento do Software*
 
-## How works:
+## Como funciona:
 
-### 1. Speedometer
+### 1. Velocímetro
 
 <p>
-    The speedometer uses the <b>navigator.geolocation</b> from JavaScript to track and get user data about speed and shows in the screen.
+    O velocímetro usa a API do JavaScript <b>navigator.geolocation</b> para rastrear e fornecer os dados da velocidade para exibir ao usuário.
+</p>
+
+### 2. Mapa
+
+<p>
+    Para a exibição dos mapas na tela inicial e na tela de detalhes, é utilizada a API do Leaflet
 </p>
