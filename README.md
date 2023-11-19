@@ -32,10 +32,6 @@ Alguns upgrades que servirão como próximos passos para o aplicativo são:
     <li>Adicionar velocidade média do percurso</li>
 </ol>
 
-## ✒️ Autor
-
-* **Isac Mamede** - *Desenvolvimento do Software*
-
 ## Como funciona:
 
 ### 1. Velocímetro
@@ -49,3 +45,7 @@ Alguns upgrades que servirão como próximos passos para o aplicativo são:
 <p>
     Para a exibição dos mapas na tela inicial e na tela de detalhes, é utilizada a API do Leaflet
 </p>
+
+## ✒️ Autor
+
+* **Isac Mamede** - *Desenvolvimento do Software*
