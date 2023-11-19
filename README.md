@@ -1,7 +1,7 @@
 # 🚲 Ride App
 
 Este é o projeto de um aplicativo que tem como objetivo rastrear caminhadas, corridas de bicicleta e até mesmo um percurso de carro. <br>
-Ele conta com uma página de registros para as corridas contendo detalhes como percurso, velocidade máxima data; e outra para ser utilizada durante o andamento de alguma atividade, contendo um velocímetro em km/h.
+Ele conta com duas páginas. A primeira exibe os registros das corridas, contendo detalhes como um mapa e seu percurso destacado, velocidade máxima, duração e data. Já a segunda é utilizada durante o andamento de alguma atividade, contendo um velocímetro em km/h.
 
 ### 📋 Pré-requisitos e Dependências
 
